@@ -1,0 +1,206 @@
+//main program runner
+public class Main
+{
+   /*This is what runs the program
+   Sets up the screen, Displays the scenes*/
+   public static void main(String[] args)
+   {
+   }
+}
+
+//This represents the main menu display
+public class MainMenu extends KGScene
+{
+   //button objects that will be displayed
+   //and checked if they have been clicked
+   KGButton pButton;
+   KGButton qButton;
+   
+   //This will display the main menu screen
+   //display the buttons
+   public void init()
+   {
+   }
+   
+   //this checks of the player wants to quit
+   //checks if either button has been clicked
+   //sets the scene to game play if pButton was clicked
+   public void update()
+   {
+   }
+   
+   //might need this to repaint graphics
+   public void cleanup()
+   {
+   }
+   
+}
+
+//this represents the maze that will be displayed
+//contains a Coord class that holds coordinate info
+public class Maze
+{
+   //2D chcaracter array storing maze display
+   private char mat[][];
+   //stores current maze position of the player
+   private Coord currentMove;
+   //stack for backtracing steps to find a path out of the maze
+   private Stack<Coord> visitStack;
+   //define size of the maze
+   private int numCol = 50;
+   private int numRow = 50;
+   //for reading pre-made maze info
+   FileReader inFile;
+   BufferedReader inStream;
+   //define dimensions of a block
+   float blockWidth;
+   float blockHeight;
+   //define location of the start and end positions in maze
+   int startRow, startCol, endRow, endCol;
+   
+   //holds coordinate information for maze components
+   class Coord
+   {
+      //defines location of the Coord
+      private int rPos;
+      private int cPos;
+      //constructor for Coord
+      public Coord (int r, int c)
+      //returns if the Coord is not occupied by a maze component
+      public boolean isFree();
+      //changes the Coord location
+      public void setPos(int r, int c)
+      //returns the Coord location
+      public int getRPos()
+      public int getCPos()
+   }
+   
+   //constructs the Maze object by setting up the file reader
+   public Maze()
+   {
+   }
+   
+   //transfer data from file to the maze display array
+   //sets up the visitStack, currentMove
+   public boolean generateMaze() throws IOException
+   {
+   }
+   
+   //returns the players position
+   public Vector3f getPlayerPosition()
+   {
+   }
+   
+   //returns if the row and col are a free space to move
+   public boolean canMove(int row, int col)
+   {
+   }
+   
+   //displays the maze configuration
+   void displayMaze()
+   {
+   }
+   
+   //determines if coordinate position is in bounds 
+   public boolean inBounds(int r, int c)
+   {
+   }
+   
+   
+}
+
+
+//this represents the game level as a whole
+public class MazeLevel extends KGScene
+{
+   //the pacman character
+   Player player;
+   //the maze blocks
+   Sprite2D[] mazeBlocks = new Sprite2D[10];
+   //the pacman idle animation
+   Animation2D idleAnim;
+   //the controller for the camera
+   CameraController2D controller;
+   boolean needGUIUpdate;
+   
+   /*displays the maze
+   creates the pacman player
+   sets up the camera*/
+   public void init()
+   {
+   }
+   
+   //checks if player wants to exit the game
+   //checks if camera needs to update display
+   public void update()
+   {
+   }
+   
+   //might need this to repaint graphics
+   public void cleanup()
+   {
+   }
+   
+   //checks if player collides with a pickup item
+   //adds the pickup item to players inventory bar
+   public void OnCollide(KGCollisionEvent ce)
+   {
+   }
+}
+
+//stores an image file and generates data file
+class Pixel
+{
+   //stores an image file and it's dimensions
+   BufferedImage image;
+   int width, height;
+   
+   //transfers image file data to the data file
+   public Pixel()
+   {
+   }
+   
+   //creates an instance of itself
+   static public void main(String args[]) throws Exception
+   {
+   }
+}
+
+
+//represents the pacman player
+public class Player extends Sprite2D
+{
+   int currentCol, currentRow;
+   int inventoryMax = 3;
+   boolean allowMove = true;
+   boolean keyPress;
+   
+   //stores possible character movements
+   enum movementDirection
+   {
+   }
+      
+   //sets up the inventory list
+   //sets up the position of th player
+   public Player(String fileName, Vector3f position, Vector3f scale, Maze myMaze)
+   {
+   }
+   
+   //checks for keyboard input
+   //moves player if the space is free
+   public void update()
+   {
+   }
+   
+   //sets the player location
+   public void setPlayerPosition()
+   {
+   }
+   
+   /*need more methods that set players current position
+   sets the target position
+   returns the players location
+   returns the players center in pixel values
+   checks if player has arrived at intended target position
+   */
+}
